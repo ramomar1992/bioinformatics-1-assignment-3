@@ -26,6 +26,5 @@ def get_formated_data_frames():
 
   dataset_pre_processed = dataset_pre_processed[dataset_pre_processed[dataset_pre_processed < 6].count(axis=1) < 10]
   df_wiht_new_titles = dataset_pre_processed.rename(columns={ old: gse.gsms[old].metadata["title"][0].split('-')[0] for old in gse.gsms.keys() })
-  summarized_data_frame = df_wiht_new_titles.groupby(df_wiht_new_titles.columns, axis=1).mean()
 
-  return summarized_data_frame
+  return df_wiht_new_titles
